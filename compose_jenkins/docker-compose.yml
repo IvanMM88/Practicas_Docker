@@ -1,0 +1,12 @@
+version: '3'
+services:
+    jenkins:
+        image: jenkins/jenkins:lts-jdk11
+        ports:
+        - "8089:8080"
+        - "50000:50000"
+        ## me creo un volumen llamado jenkins_home (docker volume create jenkins)
+        volumes:
+        - jenkins1:/var/jenkins_home
+volumes:
+    jenkins1:
