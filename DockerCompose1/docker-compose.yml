@@ -1,0 +1,10 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  webserver:
+    image: httpd
+    ports:
+        - "10001:80"
+  appserver:
+    image: tomcat
+    ports:
+        - "10002:8080"
