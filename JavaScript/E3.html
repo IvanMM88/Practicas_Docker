@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1" style="background-color: crimson;" onmouseenter="cambiarColor()" onmouseout="cambiarColor2()">
+    <ul>
+        <li>Informatica</li>
+        <li>Matematicas</li>
+        <li>Ciencias</li>
+        <li>Matematicas</li>
+    </ul>
+    </div>
+
+    <div>
+    <button onclick="cambiar()">CAMBIAR DE MATEMATICAS A LENGUA ALEX</button>
+    <button onclick="cambio()">CAMBIAR DE MATEMATICAS A LENGUA FRANCIS</button>
+    <button onclick="mayus()">MAYUSCULAS</button>
+    <button onclick="minus()">MINUSCULAS</button>
+    </div>
+
+    <div>
+        <input id="texto1" type="text" onkeyup="enviar()">
+        <br>
+        <label id="eti">Escribe algo</label>
+        <br>
+        <input id="texto2" type="text">
+        <button name="btn1" type="submit" onchange="pulsar()">Púlsame</button>
+        <br>
+        <label id="eti2"> </label>
+
+    <script>
+        function pulsar(){
+            var texto = document.getElementById("texto2").value
+
+            var textoInv =" ";
+            while (texto>=0){
+                textoInv = textoInv + texto.charAt(texto);
+                texto--;
+            }
+
+            document.getElementById("eti2").innerHTML = textoInv
+        }
+    </script>
+    <script>
+        function enviar(){
+               texto = document.getElementById("texto1").value
+               document.getElementById("eti").innerHTML=texto.toUpperCase();
+        }
+    </script>
+    <script>
+    function cambiar()
+        {
+            var valores =document.getElementsByTagName("li")
+            valores[1].innerHTML="Lengua"
+            
+        }
+    </script>
+    <script>
+        function cambio(){
+        var mates = document.getElementsByTagName("li")
+        for(i in mates){
+            if(mates[i].innerHTML == "Matematicas"){
+                mates[i].innerHTML = "Lengua"
+            }
+        }
+    }
+    </script>
+
+    <script>
+        function mayus(){
+            var asig = document.getElementsByTagName("li")
+
+            for (i in asig){
+                asig[i].innerHTML = asig[i].innerHTML.toUpperCase();
+            }
+        }
+    </script>
+
+    <script>
+        function minus(){
+            var asig = document.getElementsByTagName("li")
+
+            for (i in asig){
+                asig[i].innerHTML = asig[i].innerHTML.toLowerCase();
+            }
+        }
+    </script>
+
+    <script>
+        function cambiarColor(){
+            document.getElementById("div1").style.backgroundColor = "green";
+        }
+        function cambiarColor2(){
+            document.getElementById("div1").style.backgroundColor = "crimson";
+        }
+    </script>
+</body>
+</html>

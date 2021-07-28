@@ -1,0 +1,81 @@
+<!DOCTYPE html >
+<html lang="es">
+    <head>
+ 
+    </head>
+    <body>
+        <div id="foo" david="canos"></div>
+        <button id="requestGeoButton" onclick="requestGeo()">Solicitar posición</button>
+ 
+        <div id="loading" style="display:none">Cargando la geo....</div>
+ 
+        <div id="contenedor" style="display:none">
+            <div>
+                <label>Latitud</label>
+                <input type="text" id="lat">
+            </div>
+            <div>
+                <label>Longitud</label>
+                <input type="text" id="lng">
+            </div>
+            <div>
+                Precisión:  
+                <span id="accuracy"></span>
+                metros.
+ 
+            </div>
+            <div>
+                Link a Google Maps:
+                <br />
+                
+                <br />
+
+                <a id="enlace" href="">Ubicacion</a>
+                
+ 
+                <br />
+               
+            </div>
+        </div>
+    </body>
+</html>
+ 
+<script type="text/javascript">
+// Pruebas
+ 
+function requestGeo() {
+    document.getElementById('requestGeoButton').disabled = 'disabled';
+    document.getElementById('loading').style.display = 'block';
+    document.getElementById('contenedor').style.display = 'none';
+ 
+    navigator.geolocation.getCurrentPosition(haIdoBien, haIdoMal);
+ 
+}
+ 
+ 
+// Declaración de función
+function haIdoBien(position) {
+    document.getElementById('lat').value = position.coords.latitude;
+    var latitud_recogida = document.getElementById("lat").value
+    document.getElementById('lng').value = position.coords.longitude;
+    var longitud_recogida = document.getElementById("lng").value
+    document.getElementById('accuracy').innerHTML = position.coords.accuracy;
+
+    var ubicacion_final = "https://www.google.com/maps/@" + latitud_recogida + "," + longitud_recogida
+    document.getElementById("enlace").href = ubicacion_final
+
+
+    
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('requestGeoButton').disabled = '';
+    document.getElementById('contenedor').style.display = 'block';
+}
+function haIdoMal(positionError) {
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('requestGeoButton').disabled = '';
+    alert(positionError.code+" "+positionError.message);
+}
+ 
+
+ 
+</script>

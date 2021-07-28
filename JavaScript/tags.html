@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAGS</title>
+
+</head>
+<body>
+    <p>
+        1. Primer parráfo
+    </p>
+    <p>
+        2. Segundo parráfo
+    </p>
+    <p>
+        3. Tercer parráfo
+    </p>
+    <p>
+        4. Cuarto parráfo
+    </p>
+    <p>
+        5. Quinto parráfo
+    </p>
+    <p>
+        6. Sexto parráfo
+    </p>
+    <p id="vacio">Los elementos son: </p>
+
+    <script>
+            
+        var numP = document.getElementsByTagName("p")
+    //guardamos todos los objetos con el tagname "p" 
+    //en una variable llamada numP
+
+    var num = numP.length;
+    //contabilizamos los elementos de numP con .length
+    // y lo guardamos en la variable num(ya es un número)
+
+    alert("Hay " + num + " elementos con la etiqueta <p>")
+    //imprimimos el número de elementos por pantalla
+
+    for( let o=0;o<numP.length; o++){
+            document.getElementById("vacio").innerHTML= numP[o].innerHTML
+    }
+
+</script>
+</body>
+</html>

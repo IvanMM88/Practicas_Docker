@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lenguajes de Programación</title>
+</head>
+<body>
+    <h3><p style="background-color: hotpink;">Lenguajes Disponibles</p></h3>
+    <ul id="li">
+        <li>Java</li>
+        <li>C++</li>
+        <li>Python</li>
+        <li>Kotlin</li>
+    </ul>
+    <input type="text" id="caja1"><input type="button" value="Inlcuir" onclick="incluir()">
+    <input type="text" id="caja2"><input type="button" value="Borrar" onclick="borrar()">
+    <h3><p style="background-color: rgb(105, 255, 198);">Lenguajes Conocidos</p></h3>
+    <div id="conocidos"></div>
+    <script>
+        function incluir(){
+            var linea = document.createElement("p");
+            linea.textContent = document.getElementById("caja1").value
+            document.getElementById("conocidos").appendChild(linea)
+        }
+
+        function borrar() {
+                    arrayMarcas = document.getElementsByTagName("li")
+                    numeroMarcas = document.getElementsByTagName("li").length
+
+                    marcaBorr=document.getElementById("marca_borr").value
+
+                    for (let i = 0; i < arrayMarcas.length; i++){
+                        if(arrayMarcas[i].innerHTML==marcaBorr){
+                            arrayMarcas[i].parentNode.removeChild(arrayMarcas[i])
+                            document.getElementById("salida").innerHTML ="<b>MARCA ELIMINADA</b>"
+                            document.getElementById("marca").value=" "
+                        }else{
+                            document.getElementById("salida").innerHTML ="<b>ERROR EN LA INSERCION DE NOMBRE A BORRAR</b>"
+                        }
+                    }
+                }
+
+    </script>
+</body>
+</html>

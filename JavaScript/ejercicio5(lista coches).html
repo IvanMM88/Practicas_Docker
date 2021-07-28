@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de coches</title>
+</head>
+<body>
+    <input type="text" id="marca">
+    <input type="button" id="btn1" value="Añadir" onclick="anadir()">
+    <ol id="list">
+        <li>Seat</li>
+        <li>Opel</li>
+        <li>Mercedes</li>
+    </ol>
+
+    <script>
+        function anadir(){
+            var linea = document.createElement("li");// creamos un elemento HTML llamado lista
+            linea.textContent = document.getElementById("marca").value //text.content sirve para añadirle un texto 
+            //a la variable que pongamos antes, en este caso linea. y el texto que le añadimos se lo especificamos
+            // despues del igual, diciendole que va a ser el contenido de la caja de texto.
+            var x = document.getElementById("list")
+            // En la variable X meto todo el contenido de la lista actual.
+            x.appendChild(linea)
+            //Y ahora a toda la lista le añado la linea que hemos recuperado de la caja de texto.
+        }
+
+        function add_element()
+        {
+          //Creo el elemento de tipo LI
+         elemento=document.createElement("li")
+         //Asocia al LI elcontenido de la caja de texto
+         elemento.innerHTML=document.getElementById("texto").value
+         //Lo añado a la Lista
+         document.getElementById("lista").appendChild(elemento)
+        }
+    </script>
+</body>
+</html>

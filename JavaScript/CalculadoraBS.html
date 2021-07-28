@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora [BootStrap]</title>
+</head>
+<body>
+    <p>Primer Número</p>
+    <input type="number" id="n1">
+    <p>Segundo Número</p>
+    <input type="number" id="n2">
+    <br> <br>
+    <button id="+" onclick="sumar()" style="background-color: rgb(241, 7, 124);">+</button>
+    <button id="-" onclick="restar()" style="background-color: rgb(241, 7, 124);">-</button>
+    <button id="/" onclick="dividir()" style="background-color: rgb(241, 7, 124);">/</button>
+    <button id="x" onclick="multiplicar()" style="background-color: rgb(241, 7, 124);">x</button>
+    <button id="reset" onclick="reset()" style="background-color: rgb(5, 255, 17);">Reset</button>
+    <br>
+    <p>Resultado:</p>
+    <label id="label1"></label>
+
+    <script>
+        function sumar(){
+            var x = document.getElementById("n1").value
+            var y = document.getElementById("n2").value
+
+            var resultado = Number(x)+Number(y);
+
+            document.getElementById("label1").innerHTML = resultado;
+        }
+    </script>
+    <script>
+        function restar(){
+            var x = document.getElementById("n1").value
+            var y = document.getElementById("n2").value
+
+            var resultado = Number(x)-Number(y);
+
+            document.getElementById("label1").innerHTML = resultado;
+        }
+    </script>
+    <script>
+        function dividir(){
+            var x = document.getElementById("n1").value
+            var y = document.getElementById("n2").value
+
+            var resultado = Number(x)/Number(y);
+
+            document.getElementById("label1").innerHTML = resultado;
+        }
+    </script>
+    <script>
+        function multiplicar(){
+            var x = document.getElementById("n1").value
+            var y = document.getElementById("n2").value
+
+            var resultado = Number(x)*Number(y);
+
+            document.getElementById("label1").innerHTML = resultado;
+        }
+    </script>
+    <script>
+        function reset(){
+            var x = "";
+            var y = "";
+
+            document.getElementById("n1").innerHTML = x;
+            document.getElementById("n2").innerHTML = y;
+            document.getElementById("label1").innerHTML = y;
+        }
+
+        function ejecutarOperacion(expresion){
+            var num1 = parseFloat(document.getElementById("n1").value)
+            var num2 = parseFloat(document.getElementById("n2").value)
+            var result
+            if(!Number.isNaN(num1) && !Number.isNaN(num2) && (num1>=1 && num1<=100) && (num2>=1 && num2<=100) ){
+                switch(expresion){
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    result = num1 / num2;
+                    break; 
+                }
+            }else{
+                result = "ERROR - Valores no válidos"
+            }
+            
+            document.getElementById("label1").innerHTML = result
+        }
+    </script>
+</body>
+</html>

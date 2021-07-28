@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horas y Minutos a Segundos</title>
+</head>
+<body>
+    <h1><p>Hora: Minutos a Segundos</p></h1>
+    <p>Introduzca hora:minuto:</p><input type="text" id="caja1"><br><br>
+    <label>Resultado:</label>
+    <p id="resultado"></p>
+    <br><br>
+    <input type="button" value="Calcular" onclick="calcular()">
+
+    <script>
+        function calcular(){
+
+            var tiempo = document.getElementById("caja1").value
+            arrayTiempo = tiempo.split(":",2);
+            var resulhoras = arrayTiempo[0]*60 + " minutos"
+            var resulminutos = arrayTiempo[1]*60 + " segundos"
+
+            document.getElementById("resultado").innerHTML = resulhoras + " y " + resulminutos
+        }
+    </script>
+</body>
+</html>

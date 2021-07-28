@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="bootstrap.min.css" />
+    <script src="jquery-3.6.0.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <style type="text/css">
+        .img {
+            width: 250px;
+        }
+
+        #img {
+            width: 250px;
+        }
+
+        body {
+            background: #045FB4;
+            /* el color de fondo de nuestra pgina */
+        }
+
+        div#contenedor2 {
+            background: red;
+            /* color de fondo del contenedor receptor */
+            border: dotted 2px #FF8000;
+            /* borde de 8 píxeles de tipo punteado */
+            width: 300px;
+            /* anchura de 200 píxeles */
+            height: 300px;
+            /* altura de 200 píxeles */
+            color: #045FB4;
+            /* color de la letra */
+            text-align: center;
+            /* alineación del texto */
+        }
+
+        div#contenedor1 {
+            background: green;
+            /* color de fondo del contenedor receptor */
+            border: dotted 2px #FF8000;
+            /* borde de 8 píxeles de tipo punteado */
+            width: 300px;
+            /* anchura de 500 píxeles */
+            height: 300px;
+            /* altura de 500 píxeles */
+            color: #045FB4;
+            /* color de la letra */
+            text-align: center;
+            /* alineación del texto */
+        }
+
+        div#contenedorm {
+            background: white;
+            /* color de fondo del contenedor receptor */
+            border: dotted 2px #FF8000;
+            /* borde de 8 píxeles de tipo punteado */
+            width: 100px;
+            /* anchura de 100 píxeles */
+            height: 100px;
+            /* altura de 100 píxeles */
+            color: #045FB4;
+            /* color de la letra */
+            text-align: center;
+            /* alineación del texto */
+        }
+    </style>
+   
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row" id="contenedorcompleto">
+            <div class="col-5" id="contenedor1">
+                <img id="img" class="img" src="imagenes/mi_imagen.jpg" />
+            </div>
+            <div class="col-2" id="contenedorm">
+                <input type="button" value="&gt&gt" id="botond" onclick="derecha();" />
+                <br>
+                <input type="button" value="&lt&lt" id="botoni" onclick="izquierda();" />
+            </div>
+            <div class="col-5" id="contenedor2">
+            </div>
+        </div>
+    </div>
+    <script>
+
+         function derecha(){
+            var imagen = document.getElementById("img");
+            var contimagen = document.getElementById("contenedor2");
+            contimagen.appendChild(imagen);
+        }
+        
+        function izquierda() {
+            //Borrado de la imagen
+            document.getElementById("img").remove();
+            //Selección 
+            var contimagen = document.getElementById("contenedor1");
+            var imagen = document.createElement("img");
+            imagen.id = "img";
+            imagen.src = "imagenes/mi_imagen.jpg";
+            contimagen.appendChild(imagen);
+        }
+    </script>
+</body>
+
+</html>

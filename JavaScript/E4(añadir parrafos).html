@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Array de CADENAS</title>
+    <script></script>
+</head>
+<body>
+    <input type="button" value="Añadir párrafo" onclick="poner_parrafo();">
+    <input type="button" value="Borrar párrafo" onclick="quitar_parrafo();">
+    <script>
+    var num_parrafo = 1;
+        function poner_parrafo() {
+            var parrafo = document.createElement("p");
+            //Se crea un parrafo llamado "p"
+            var contenido = document.createTextNode("Parrafo número " + num_parrafo++);
+            //Se crea un contenido
+            parrafo.appendChild(contenido);
+            //Se añade el contenido al parrafo creado
+            document.body.appendChild(parrafo);
+            //Se añade el parrafo con el contenido al body de la pagina
+        }
+        function quitar_parrafo() {
+            if (num_parrafo == 1) { alert("no hay más párrafos que eliminar"); }
+            else {
+                var parrafo = document.getElementsByTagName("p");
+                var ultimo = parrafo[parrafo.length - 1];
+                ultimo.parentNode.removeChild(ultimo);
+                num_parrafo--;
+            }
+        }
+    </script>
+</body>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<p id="p1" style="background-color: aqua;">
+    DIAS DE LA SEMANA
+</p>
+
+<body>
+    <script>
+        document.write("<p style='background-color:green'>")
+        for (var i = 0; i < 10; i++) {
+            document.write(i)
+        }
+        var array1 = [90, 89, 67]
+        document.write("<br>")
+        for (var i = 0; i < array1.length; i++) {
+            document.writeln(array1[i])
+        }
+        document.write("<br>")
+        for (i in array1) {
+            document.writeln(array1[i])
+
+        }
+        document.write("</p>")
+        document.write('<p style="background-color: red">')
+        var array1 = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado", "Domingo"]
+        for (i in array1) {
+            document.writeln(array1[i])
+        }
+        document.write("</p>")
+       for (i in array1) {
+       
+        document.getElementById("p1").innerHTML = document.getElementById("p1").innerHTML + "<br>" + array1[i];
+        }
+        document.get
+       /* var dias
+        for (i in array1) {       
+             dias=dias+ "<br>" + array1[i];
+       }
+       document.getElementById("p1").innerHTML= document.getElementById("p1").innerHTML+dias
+*/
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+</head>
+<body>
+   <p id="geo">Averigua tus coordenadas</p> 
+   <button onclick="localizar()">ACEPTAR</button>
+   <p id="coordenadas">Aqui van las coordenadas</p>
+   <div id="mapa">MAPA</div>
+
+    <script>
+        //navigator.geolocalization
+
+        //Funcion para localizar las coordenadas
+        function localizar()
+        {
+            // si el navegador soporta geolocalizacion
+            if (navigator.geolocation)
+            {
+                //Recupera las coordenadas y se las pasa a una funcion (en este caso "mostrar")
+                navigator.geolocation.getCurrentPosition(mostrar)
+            }
+            else{
+                document.getElementById("coordenadas").innerHTML="No hay sopporte de GEO"
+            }
+
+        }
+
+        //Funciona para visualizar las coordenadas
+        function mostrar(p)
+        {
+            //Recupero el parrafo para pintar las coordenadas
+            var parrafo=document.getElementById("coordenadas")
+            
+            //Pinto en el parrafo las coordenadas
+            parrafo.innerHTML="Latitud:"+p.coords.latitude+" Longitud:"+p.coords.longitude;            
+            
+            //Recupero las coordenadas de mapa de Google
+            posicion=new google.maps.LatLng(p.coords.latitude,p.coords.longitude)
+            
+            //Preparo el contenedor para pintar el mapa
+            var m=document.getElementById("mapa")
+            m.style.height='250px'
+            m.style.width='500px'
+
+            //Configuro las opciones del mapa
+            var opciones={center:posicion,zoom:20}
+
+            //Creo el mapa y lo cargo en el contenedor con las opciones
+            var mapa_google=new google.maps.Map(m,opciones)
+
+            //Pongo un marcador en la posición
+            var marcador= new google.maps.Marker({position:posicion,map:mapa_google,title:"ESTOY AQUI"})
+
+
+        }
+
+    </script>
+</body>
+</html>
