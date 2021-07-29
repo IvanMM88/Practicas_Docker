@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica de Javascript y Bootstrap</title>
+    <script src = "Bootstrap/js/jquery-3.6.0.min.js"></script>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src = "Bootstrap/js/bootstrap.min.js"></script>
+
+    <script src = "https://unpkg.com/@popperjs/core@2"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <h1>Un ejemplo de JavaScript y Bootstrap</h1>
+        <div class="row">
+            <div class="col-sm" style="background-color: rgb(123, 255, 47);">Primer columna</div>
+            
+        </div>
+        <div class="row">
+        <div class="col-sm-4" style="background-color: cyan;">Cuenta la historia que las voces que oyeron don Quijote, el Cura y el Barbero eran de la Sobrina y Ama, que las daban diciendo a Sancho Panza, que pugnaba por entrar a ver a don Quijote, y ellas le defendían la puerta:
+
+            -¿Qué quiere este mostrenco en esta casa? Idos a la vuestra, hermano, que vos sois, y no otro, el que destrae y sonsaca a mi señor, y le lleva por esos andurriales.
+            
+            A lo que Sancho respondió:
+            
+            -Ama de Satanás, el sonsacado, y el destraído, y el llevado por esos andurriales soy yo; que no tu amo: él me llevó por esos mundos, y vosotras os engañáis en la mitad del justo precio; él me sacó de mi casa con engañifas, prometiéndome una ínsula, que hasta agora la espero.
+            
+            -Malas ínsulas te ahoguen -respondió la Sobrina-, Sancho maldito. Y ¿qué son ínsulas? ¿Es alguna cosa de comer, golosazo, comilón, que tú eres?
+            
+            -No es de comer -replicó Sancho-, sino de gobernar y regir mejor que cuatro ciudades y que cuatro alcaldes de Corte.
+            
+            -Con todo eso -dijo el Ama-, no entraréis acá, saco de maldades y costal de malicias. Id a gobernar vuestra casa y a labrar vuestros pegujares, y dejaos de pretender ínsulas ni ínsulos.</div>
+        <div class="col-sm-8">
+            <table class="table table-bordered table-hover">
+                <tr class="table-danger">
+                    <th>
+                        Nombre
+                    </th>
+                    <th>
+                        Apellidos
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        Alberto
+                    </td>
+                    <td>
+                        Rodriguez
+                    </td>
+                <tr>
+                    <td>
+                        Rosa
+                    </td>
+                    <td>
+                        Garcia
+                    </td>
+                </tr>
+                <tr>
+                    <td id="mayus">
+                        Pedro
+                    </td>
+                    <td>
+                        Romero
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+        <div style="background-color: slategrey;">
+        <h1>FORMULARIO DE ENTRADA</h1>
+         <p>Número 1</p>
+         <input type="number" id="n1" placeholder="Introduzca número">
+         <p>Número 2</p>
+         <input type="number" id="n2" placeholder="Introduzca número">
+         <br>
+         <label style="background-color: olive;">Resultado:</label>
+            <h1><label id="label1"></label></h1>
+         <br><br>
+         <button type="button" class="btn btn-danger" onclick="sumar()">Sumar</button>   
+         </div>
+
+         <script>
+             function sumar(){
+            var x = document.getElementById("n1").value
+            var y = document.getElementById("n2").value
+
+            var resultado = Number(x)+Number(y);
+
+            document.getElementById("label1").innerHTML = resultado;
+        }
+
+         </script>
+</body>
+</html>

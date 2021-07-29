@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <script src = "Bootstrap/js/jquery-3.6.0.min.js"></script>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src = "Bootstrap/js/bootstrap.min.js"></script>
+
+    <script src = "https://unpkg.com/@popperjs/core@2"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+    <h1>Formulario de prodcuto</h1>
+    <div class="col-sm-6">
+    <form style="background-color: darkgrey;">
+        <div class="form-group">
+          <label>Código de prodcuto</label>
+          <input type="text" class="form-control" id="caja1" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+          <label>Nombre del prodcuto</label>
+          <input type="text" class="form-control" id="caja2" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+            <label>Nombre del proveedor</label>
+            <input type="text" class="form-control" id="caja3" aria-describedby="emailHelp">
+          </div>
+          <div class="form-group">
+            <label>Número de unidades</label>
+            <input type="text" class="form-control" id="caja4" aria-describedby="emailHelp">
+          </div>
+          <div class="form-group">
+            <label>PVP de unidad de producto</label>
+            <input type="text" class="form-control" id="caja5" aria-describedby="emailHelp">
+          </div>
+        <button type="submit" class="btn btn-primary" onclick="grabar()">Grabar Producto</button>
+        <button type="button" class="btn btn-primary" onclick="ver_datos()">Ver todos los datos</button>
+        <button type="button" class="btn btn-primary" onclick="beneficio()">Ver beneficio</button>
+        <button type="button" class="btn btn-primary" onclick="neto()">Ver neto</button>
+      </form>
+
+    </div>
+    <div>
+    <label id="p1">Producto: <br></label>
+  <br>
+    <label id="p2">El beneficio será:  </label>
+  <br>
+     <label id="p3">Neto: </label>
+    </div>
+    <script>
+      
+
+        var producto = {
+            codigo:0,
+            nombre_producto:"",
+            nombre_proveedor:"",
+            unidades:0,
+            pvp_unidad:0,
+
+            ver_datos: function(){
+
+                return "Nombre del producto: "+ this.nombre_producto +"<br>Código del producto: "+ this.codigo +"<br>Proveedor: "+
+                this.nombre_proveedor +"<br>Unidades: "+ this.unidades +"<br>PVP: "+ this.pvp_unidad
+            },
+
+            beneficio: function(){
+
+              var benef = parseFloat(this.unidades) * parseFloat(this.pvp_unidad)
+
+                return benef
+            },
+
+            neto = function(){
+
+              neto = benef * 0.79
+
+                return neto
+            }
+            
+        }
+
+            function grabar(){
+
+                producto.codigo = document.getElementById("caja1").value
+                producto.nombre_producto = document.getElementById("caja2").value
+                producto.nombre_proveedor = document.getElementById("caja3").value
+                producto.unidades = document.getElementById("caja4").value
+                producto.pvp_unidad = document.getElementById("caja5").value
+                }
+
+            function datos(){
+                document.getElementById("p1").innerHTML =  producto.ver_datos()
+            }
+
+
+            function beneficio(){
+                document.getElementById("p2").innerHTML =  producto.beneficio()
+            }
+
+            function neto(){
+                document.getElementById("p3").innerHTML =  producto.neto()
+            }
+    </script>
+</body>
+</html>

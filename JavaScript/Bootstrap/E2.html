@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+
+    <script src = "Bootstrap/js/jquery-3.6.0.min.js"></script>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src = "Bootstrap/js/bootstrap.min.js"></script>
+
+    <script src = "https://unpkg.com/@popperjs/core@2"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="row">
+        <div class="col-sm-6">
+        <h1>Formulario</h1>
+        <form>
+            <div class="form-group">
+                <label for="hint">Escribe una palabra</label>
+                <input type="text" class="form-control" id="texto1">
+                <button type="button" class="btn btn-primary" onclick="enviar()">Enviar</button>
+                <button type="button" class="btn btn-outline-danger" onclick="borrar()">Borrar</button>
+            </div>
+        </form>
+        </div>
+        <div class="col-sm-3">
+            <ul id="lista">
+                <li></li>
+            </ul>
+        </div>
+    </div>
+    <script src="JavaScript\Bootstrap\js\E2libreria.js"></script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src = "Bootstrap/js/jquery-3.6.0.min.js"></script>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src = "Bootstrap/js/bootstrap.min.js"></script>
+
+    <script src = "https://unpkg.com/@popperjs/core@2"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <script>
+        /* crear un objeto denominado producto 
+        Propiedades ----------- 
+        codigo number 
+        nombre_producto string 
+        nombre_proveedor string 
+        unidades number 
+        pvp_unidad number 
+        Metodos ------- ver_datos() --> Ver todos los datos beneficio() --> unidades * pvp_unidad ---- 
+        Est lo creamos de forma externa neto(iva) --> beneficio - iva (21%) */
+
+        /*
+        var producto = {
+            codigo: 00000,
+            nombre_producto: "Nombre sin asignar",
+            nombre_proveedor: "Nombre proveedor sin asignar",
+            unidades: 00000,
+            pvp_unidad: 00000, 
+
+            ver_datos() {
+                return this.codigo + " " + this.nombre_producto + " " + this.nombre_proveedor + " " + this.unidades + " " + this.pvp_unidad
+            },
+
+            beneficio() {
+                return (this.unidades * this.pvp_unidad) * 0.79
+            }
+            
+        }
+        */
+       function Producto(codigo, nombre_producto, nombre_proveedor, unidades, pvp_unidad) {
+           this.codigo = codigo,
+           this.nombre_producto = nombre_producto,
+           this.nombre_proveedor = nombre_proveedor,
+           this.unidades = unidades,
+           this.pvp_unidad = pvp_unidad
+
+           this.ver_datos = function() {
+                return this.codigo + " " + this.nombre_producto + " " + this.nombre_proveedor + " " + this.unidades + " " + this.pvp_unidad
+           }
+
+           this.beneficio = function() {
+                return (parseFloat(this.unidades) * parseFloat(this.pvp_unidad))
+           }
+
+           this.beneficioBruto = function() {
+                return (parseFloat(this.unidades) * parseFloat(this.pvp_unidad)) * 0.79
+           }
+
+       }
+
+       var producto = new Producto(0000, "Nombre sin asignar", "Nombre proveedor sin asignar", 00000, 00000)
+
+       /*
+        producto.beneficio = function() {
+            return (parseFloat(this.unidades) * parseFloat(this.pvp_unidad))
+        }
+        
+        producto.beneficioNeto = function() {
+            return (parseFloat(this.unidades) * parseFloat(this.pvp_unidad)) * 0.79
+        }
+        */
+
+    </script>
+
+    <div class="container">
+
+        <h1>Ejercicio 7</h1>
+        <div class="row">
+            <div class="col-sm-6" style="background-color: grey; border: ridge;height: 300px;">
+                <form>
+                    <div class="form-group">
+                        <h5>FORMULARIO DE ENTRADA</h2>
+                        <label>Codigo</label>
+                        <input type="text" class="form-control" id="input1" aria-describedby="emailHelp">
+                        <br>
+                        <label>nombre_producto</label>
+                        <input type="text" class="form-control" id="input2" aria-describedby="emailHelp">
+                        <br>
+                        <label>nombre_proveedor</label>
+                        <input type="text" class="form-control" id="input3" aria-describedby="emailHelp">
+                        <br>
+                        <label>unidades</label>
+                        <input type="text" class="form-control" id="input4" aria-describedby="emailHelp">
+                        <br>
+                        <label>pvp_unidad</label>
+                        <input type="text" class="form-control" id="input5" aria-describedby="emailHelp">
+                        <br>
+                        <br>
+                        <button type="button" class="btn btn-success" onclick="botonPulsado()">Enviar</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-6" style="background-color: blue; border: ridge;height: 300px;"> 
+                <button type="button" class="btn btn-success" onclick="botonDatos()">Ver datos</button>
+                <button type="button" class="btn btn-success" onclick="botonNeto()">Ver beneficio neto</button>
+                <button type="button" class="btn btn-success" onclick="botonBruto()">Ver beneficio bruto</button>
+                <br>
+                <br>
+                <label id="labelDatos">Datos</label>
+                <br>
+                <label id="labelNeto">Beneficio neto</label>
+                <br>
+                <label id="labelBruto">Beneficio bruto</label>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function botonPulsado() {
+
+            producto.codigo = document.getElementById("input1").value
+            producto.nombre_producto = document.getElementById("input2").value
+            producto.nombre_proveedor = document.getElementById("input3").value
+            producto.unidades = document.getElementById("input4").value
+            producto.pvp_unidad = document.getElementById("input5").value
+        }
+
+        function botonDatos(){
+            document.getElementById("labelDatos").innerHTML = producto.ver_datos()
+        }
+
+        function botonNeto() {
+            document.getElementById("labelNeto").innerHTML = producto.beneficio()
+        }
+
+        function botonBruto() {
+            document.getElementById("labelBruto").innerHTML = producto.beneficioBruto()
+        }
+
+    </script>
+    
+</body>
+</html>

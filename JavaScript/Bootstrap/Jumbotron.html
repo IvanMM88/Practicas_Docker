@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jumbotron</title>
+    <script src = "Bootstrap/js/jquery-3.6.0.min.js"></script>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src = "Bootstrap/js/bootstrap.min.js"></script>
+
+    <script src = "https://unpkg.com/@popperjs/core@2"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="jumbotron">
+        <h1 class="display-4">Propiedades de la moto</h1>
+        <p class="lead">This is a simple hero unit, a simple jumbotron-style.</p>
+        <hr class="my-4">
+        <p id="p1">Haz click en el botón</p>
+        <a class="btn btn-primary btn-lg" onclick="propiedades()" href="#" role="button">Mostrar Propiedades</a>
+      </div>
+
+    <script>
+        function propiedades(){
+            var moto = {
+                marca : "Yamaha",
+                modelo : "MT09",
+                matricula:"XXXXX",
+                cv:121,
+                ruedas:2,
+                pvp:11000
+            }
+            document.getElementById("p1").innerHTML = "Marca de la moto: "+moto.marca+"<br> ,Modelo de la moto: "+moto.modelo+"<br> ,Matricula de la moto: "
+            +moto.matricula+"<br> ,Caballos: "+moto.cv+"<br> ,Ruedas: "+moto.ruedas+"<br> ,PVP: "+moto.pvp
+        }
+    </script>
+</body>
+</html>

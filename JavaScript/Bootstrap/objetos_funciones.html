@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src = "Bootstrap/js/jquery-3.6.0.min.js"></script>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src = "Bootstrap/js/bootstrap.min.js"></script>
+
+    <script src = "https://unpkg.com/@popperjs/core@2"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="div1">
+
+
+    </div>
+
+    <script>
+
+        var curso = {
+
+            codigo: 1,
+            nombre_curso: "Curso de buceo",
+            nombre_profesor: "Roberto",
+            num_asignaturas: 5,
+            num_alumnos: 10,
+
+            ver_datos: function () {
+
+                return this.nombre_curso + " " + this.nombre_profesor
+            },
+
+            beneficio: function () {
+
+                return this.num_alumnos * 100
+
+            }
+
+
+        }
+
+        curso.neto = function (iva) {
+
+            return curso.beneficio() * iva
+        }
+
+
+
+        for (i in curso) {
+
+            document.getElementById("div1").innerHTML = document.getElementById("div1").innerHTML + "<br>" + i + " :" + curso[i]
+        }
+
+        document.getElementById("div1").innerHTML = document.getElementById("div1").innerHTML + "<br>" + curso.ver_datos()
+        document.getElementById("div1").innerHTML = document.getElementById("div1").innerHTML + "<br>" + curso.beneficio()
+        document.getElementById("div1").innerHTML = document.getElementById("div1").innerHTML + "<br>" + curso.neto(100)
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
