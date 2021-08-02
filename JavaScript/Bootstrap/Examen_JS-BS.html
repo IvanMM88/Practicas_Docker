@@ -1,0 +1,48 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Ejercicio 14 - DOM básico</title>
+</head>
+><body>
+  
+</body>
+<script>
+  var cadena = prompt("Introduce una cadena de texto:");
+  var numchar = cadena.length;    
+  cadena = cadena.toLowerCase();  
+  var car;
+  var contadorA = 0;
+  var contadorE = 0;
+  var contadorI = 0;
+  var contadorO = 0;
+  var contadorU = 0;
+  var i;
+  for (i = 0; i < numchar; i++) {
+      car = cadena.charAt(i);   
+      if (car == "a")  {
+          contadorA++;
+      }
+      if (car == "e") {
+          contadorE++;
+      }
+      if (car == "i") {
+          contadorI++;
+      }
+      if (car == "o") {
+          contadorO++;
+      }
+      if (car == "u") {
+          contadorU++;
+      }
+  }
+  document.write("Número de A = " + contadorA + ".  -");
+  document.write("Número de E = " + contadorE + ".  -");
+  document.write("Número de I = " + contadorI + ".  -");
+  document.write("Número de O = " + contadorO + ".  -");
+  document.write("Número de U = " + contadorU + ".  -");
+</script>
+</html>
+
